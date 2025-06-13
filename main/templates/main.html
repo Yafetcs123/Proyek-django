@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-start;
+      /* Menu di kiri */
+      align-items: center;
+      background: #ffffff;
+      padding: 15px 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+      margin-left: auto;
+      /* Logo dipaksa ke kanan */
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+        /* Untuk mobile, logo dan toggle sejajar */
+      }
+
+      .navbar .logo {
+        margin-left: 0;
+        /* Reset margin di mobile */
+      }
+
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: #f9f9f9;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #333;
+      }
+    }
+    .icon{
+      font-size: 22px;
+      display: none;
+    }
+    </style>
+  </head>
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul id="nav-menu">
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Tulis</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+    <a href="#" class="logo">BlogKu</a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </nav>
+   <main>
+    <p>{{ page_title }}</p>
+   </main>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
