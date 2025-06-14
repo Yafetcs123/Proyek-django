@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <li><a href="{% url 'register' %}">Register</a></li>
     <li><a href="{% url 'Login' %}">Login</a></li>
-    <li><a href="#">Logout</a></li>
+    <li><a href="{% url 'logoutt' %}">Logout</a></li>
     <h3>selamat datang {{ user }}</h1>
 </body>
 </html>

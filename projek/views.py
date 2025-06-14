@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
-class IndexView(TemplateView):
-    template_name = 'index.html'
 def index(request):
     context = {
         'title':'hallo'
@@ -25,8 +24,12 @@ def Login(request):
     return render(request, 'login.html', context)
 
 
-def logout(request):
+def logoutt(request):
+   if request.method == 'POST':
+       if request.POST["logout"] == "Submit":
+           logout(request)
+           return redirect('index')
    context = {
-        'title':'hallo'
+        'page':'holla'
     }
    return render(request, 'logout.html', context)
